@@ -12,7 +12,8 @@ const About = () => {
 
   return (
     <div className="about-page">
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .about-banner {
           background-color: var(--primary);
           color: white;
@@ -60,7 +61,7 @@ const About = () => {
       <section className="about-content">
         <div className="container">
           <div className="grid grid-2" style={{ alignItems: 'center' }}>
-            <motion.div 
+            <motion.div
               initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
@@ -80,8 +81,8 @@ const About = () => {
                 </div>
               </div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
@@ -97,8 +98,8 @@ const About = () => {
         <div className="container">
           <div className="grid grid-4" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
             {stats.map((s, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
