@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Phone, CheckCircle, ArrowRight, Clock, Award, Users } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Phone, CheckCircle, ArrowRight, Clock, Award, Users, X } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
+import EnquiryForm from '../components/EnquiryForm';
 
 const Home = () => {
   const phoneNumber = "916369284551";
@@ -10,6 +11,7 @@ const Home = () => {
   const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(waBase)}`;
 
   const [scrolled, setScrolled] = useState(false);
+  const [modal, setModal] = useState(null); // { vehicleType, seating, name }
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
@@ -17,10 +19,10 @@ const Home = () => {
   }, []);
 
   const fleet = [
-    { name: "Sedan (Swift Dzire)", cap: "4+1 Seater", img: "/images/swift_dzire.png" },
-    { name: "Innova Crysta", cap: "6-7 Seater", img: "/images/innova_crysta.png" },
-    { name: "Tempo Traveller", cap: "14-17 Seater", img: "/images/tempo_traveller.png" },
-    { name: "Luxury Tourist Bus", cap: "18 to 52 Seater", img: "/images/tourist_bus.png" }
+    { name: "Sedan (Swift Dzire)", cap: "4 Seater",        img: "/images/swift_dzire.png",   vehicleType: "Car",             seating: "4"  },
+    { name: "Innova Crysta",       cap: "7 Seater",        img: "/images/innova_crysta.png", vehicleType: "Car",             seating: "7"  },
+    { name: "Tempo Traveller",     cap: "14 Seater",       img: "/images/tempo_traveller.png", vehicleType: "Tempo Traveller", seating: "14" },
+    { name: "Luxury Tourist Bus",  cap: "18 to 52 Seater", img: "/images/tourist_bus.png",   vehicleType: "Bus",             seating: "52" }
   ];
 
   return (
@@ -83,6 +85,25 @@ const Home = () => {
           .hero-sub { margin-inline: auto; font-size: 1.1rem; }
           .hero-heading { font-size: 2.5rem; }
         }
+        .eq-modal-overlay {
+          position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+          z-index: 20000; display: flex; align-items: center; justify-content: center;
+          padding: 1rem; backdrop-filter: blur(4px);
+        }
+        .eq-modal-box {
+          background: white; border-radius: 24px; width: 100%;
+          max-width: 680px; max-height: 92vh; overflow-y: auto;
+          padding: 2.5rem; position: relative;
+          box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+        }
+        .eq-modal-close {
+          position: absolute; top: 1.2rem; right: 1.2rem;
+          background: #f3f4f6; border: none; border-radius: 50%; width: 38px; height: 38px;
+          display: flex; align-items: center; justify-content: center;
+          cursor: pointer; transition: 0.2s; color: #374151;
+        }
+        .eq-modal-close:hover { background: #fee2e2; color: #dc2626; }
+        @media (max-width: 640px) { .eq-modal-box { padding: 1.5rem; } }
       `}} />
 
       {/* Hero Section */}
@@ -139,9 +160,10 @@ const Home = () => {
                   <span className="v-cap-tag">{v.cap}</span>
                   <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem' }}>{v.name}</h3>
                   <div style={{ marginTop: 'auto' }}>
-                    <a href={`https://wa.me/${phoneNumber}?text=Hi%20INAI%20Travels,%20I'm%20interested%20in%20${v.name}.`} className="btn btn-whatsapp" style={{ width: '100%', fontSize: '0.95rem' }}>
-                      <WhatsAppIcon size={18} className="mr-2" style={{ marginRight: '6px' }} /> BOOK NOW
-                    </a>
+                    <button onClick={() => setModal({ vehicleType: v.vehicleType, seating: v.seating, name: v.name })}
+                      className="btn btn-whatsapp" style={{ width: '100%', fontSize: '0.95rem', border: 'none', cursor: 'pointer' }}>
+                      <WhatsAppIcon size={18} style={{ marginRight: '6px' }} /> ENQUIRE NOW
+                    </button>
                   </div>
                 </div>
               </motion.div>
@@ -189,9 +211,39 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Final Massive CTA */}
-      <section className="section-padding" style={{ background: 'var(--primary)', color: 'white', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+      {/* Quick Enquiry Section */}
+      <section className="section-padding bg-white">
+        <div className="container">
+          <div className="grid grid-2" style={{ alignItems: 'flex-start', gap: '5rem' }}>
+            <div>
+              <h2 style={{ fontSize: '2.8rem', lineHeight: 1.1, marginBottom: '1.5rem' }}>Book Your Trip in <span style={{ color: 'var(--primary)', borderBottom: '4px solid var(--accent)' }}>2 Minutes</span></h2>
+              <p style={{ color: 'var(--text-light)', fontSize: '1.2rem', marginBottom: '2.5rem' }}>Fill the form and get an instant WhatsApp quote from our team. No advance payment  — just confirm your trip and we'll handle the rest.</p>
+              <div style={{ display: 'grid', gap: '1.2rem' }}>
+                {[
+                  "All vehicle types available instantly",
+                  "Verified drivers with clean records",
+                  "No hidden charges, transparent billing",
+                  "24/7 support on WhatsApp & Phone"
+                ].map((item, i) => (
+                  <div key={i} style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                    <div style={{ color: 'var(--whatsapp)', flexShrink: 0 }}><CheckCircle size={22} /></div>
+                    <p style={{ margin: 0, fontWeight: 700, fontSize: '1.05rem' }}>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div style={{ background: '#f9fafb', borderRadius: '24px', padding: '2.5rem', border: '1px solid #f0f0f0', boxShadow: '0 10px 40px rgba(0,0,0,0.05)' }}>
+              <h3 style={{ marginBottom: '0.5rem', fontSize: '1.6rem' }}>Quick Booking Enquiry</h3>
+              <p style={{ color: '#6B7280', marginBottom: '2rem', fontSize: '0.95rem' }}>We respond within minutes on WhatsApp.</p>
+              <EnquiryForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="section-padding" style={{ background: 'var(--primary)', color: 'white', textAlign: 'center' }}>
+         <div className="container">
             <h2 style={{ color: 'white', fontSize: '3.2rem', marginBottom: '1.5rem', fontWeight: 900 }}>Ready to Book Your Journey?</h2>
             <p style={{ opacity: 0.9, fontSize: '1.3rem', marginBottom: '4rem', maxWidth: '750px', marginInline: 'auto', fontWeight: 500 }}>Join thousands of happy travelers who trust INAI Travels for their Coimbatore journeys. Click below to book in seconds.</p>
             <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -199,12 +251,28 @@ const Home = () => {
                   <Phone size={24} /> CALL +91 63692 84551
                </a>
                <a href={waLink} className="btn btn-whatsapp" style={{ padding: '1.5rem 3rem', fontSize: '1.2rem', minWidth: '280px' }}>
-                  <WhatsAppIcon size={24} className="mr-3" style={{ marginRight: '10px' }} /> CHAT ON WHATSAPP
+                  <WhatsAppIcon size={24} style={{ marginRight: '10px' }} /> CHAT ON WHATSAPP
                </a>
             </div>
          </div>
-         {/* Subtle background decoration removed as requested */}
       </section>
+
+      {/* Vehicle Enquiry Modal */}
+      <AnimatePresence>
+        {modal && (
+          <motion.div className="eq-modal-overlay"
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            onClick={(e) => { if (e.target.classList.contains('eq-modal-overlay')) setModal(null); }}>
+            <motion.div className="eq-modal-box"
+              initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}>
+              <button className="eq-modal-close" onClick={() => setModal(null)}><X size={20} /></button>
+              <h2 style={{ marginBottom: '0.4rem', fontSize: '1.8rem', paddingRight: '2rem' }}>Enquire: {modal.name}</h2>
+              <p style={{ color: '#6B7280', marginBottom: '2rem', fontSize: '0.95rem' }}>Vehicle type and seating are pre-filled. Add your trip details to get an instant WhatsApp quote.</p>
+              <EnquiryForm prefillVehicleType={modal.vehicleType} prefillSeating={modal.seating} onClose={() => setModal(null)} />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
