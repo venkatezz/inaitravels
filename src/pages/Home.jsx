@@ -81,9 +81,9 @@ const Home = () => {
 
         @media (max-width: 768px) {
           .hero-v2 { text-align: center; padding-top: 2rem; }
-          .hero-v2::before { background: rgba(0,33,71,0.7); }
+          .hero-v2::before { background: rgba(0,33,71,0.82); }
           .hero-sub { margin-inline: auto; font-size: 1.1rem; }
-          .hero-heading { font-size: 2.5rem; }
+          .hero-heading { font-size: 2.5rem; color: #ffffff !important; }
         }
         .eq-modal-overlay {
           position: fixed; inset: 0; background: rgba(0,0,0,0.6);

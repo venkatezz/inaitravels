@@ -29,6 +29,14 @@ const About = () => {
           transition: 0.3s;
         }
         .stat-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .value-cards {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+        }
+        @media (max-width: 640px) {
+          .value-cards { grid-template-columns: 1fr; }
+        }
         .stat-icon {
           color: var(--accent);
           display: flex;
@@ -70,7 +78,7 @@ const About = () => {
               <h2 style={{ fontSize: '3rem', marginBottom: '2rem', lineHeight: 1.1 }}>Experience the <br />True Spirit of <span style={{ color: 'var(--primary)', borderBottom: '4px solid var(--accent)' }}>Travel</span></h2>
               <p style={{ fontSize: '1.2rem', color: 'var(--text-light)', marginBottom: '1.5rem' }}>Founded in Coimbatore, INAI Travels started with one mission: making travel more than just a commute. We believe in providing a seamless journey where comfort and safety meet professional hospitality.</p>
               <p style={{ fontSize: '1.2rem', color: 'var(--text-light)', marginBottom: '2.5rem' }}>Today, we manage a premium fleet and have safely connected thousands of travelers to destinations across South India. Our commitment remains the same: a premium experience for every passenger, every time.</p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }}>
+              <div className="value-cards">
                 <div style={{ padding: '1.5rem', background: 'var(--bg-light)', borderRadius: '15px', borderLeft: '5px solid var(--accent)' }}>
                   <h4 style={{ color: 'var(--primary)', marginBottom: '0.5rem', fontSize: '1.2rem' }}>Reliability</h4>
                   <p style={{ fontSize: '0.95rem', margin: 0 }}>Punctuality is our priority. Your schedule is our promise.</p>

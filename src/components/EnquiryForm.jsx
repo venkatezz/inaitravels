@@ -136,14 +136,21 @@ const EnquiryForm = ({ prefillVehicleType = '', prefillSeating = '', compact = f
           padding-right: 2.5rem;
         }
         .eq-error-field { border-color: #dc2626 !important; }
+        .eq-grid-2 {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.25rem;
+          margin-bottom: 1.25rem;
+        }
         @media (max-width: 640px) {
           .eq-grid-2 { grid-template-columns: 1fr !important; }
+          .eq-field { font-size: 16px !important; min-height: 52px; }
         }
       `}} />
 
       <form onSubmit={handleSubmit} noValidate>
         {/* Row 1: Name + Phone */}
-        <div className="eq-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem', marginBottom: '1.25rem' }}>
+        <div className="eq-grid-2">
           <div>
             <label style={labelStyle}><Phone size={13} /> Name *</label>
             <input
@@ -163,7 +170,7 @@ const EnquiryForm = ({ prefillVehicleType = '', prefillSeating = '', compact = f
         </div>
 
         {/* Row 2: Pickup + Drop */}
-        <div className="eq-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem', marginBottom: '1.25rem' }}>
+        <div className="eq-grid-2">
           <div>
             <label style={labelStyle}><Navigation size={13} /> Pickup Location</label>
             <input type="text" name="pickup" className="eq-field" style={fieldStyle}
@@ -177,7 +184,7 @@ const EnquiryForm = ({ prefillVehicleType = '', prefillSeating = '', compact = f
         </div>
 
         {/* Row 3: Date + Number of Days */}
-        <div className="eq-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem', marginBottom: '1.25rem' }}>
+        <div className="eq-grid-2">
           <div>
             <label style={labelStyle}><Calendar size={13} /> Travel Date</label>
             <input type="date" name="date" className="eq-field" style={fieldStyle} value={form.date} onChange={handleChange} />
@@ -198,7 +205,7 @@ const EnquiryForm = ({ prefillVehicleType = '', prefillSeating = '', compact = f
         </div>
 
         {/* Row 4: Vehicle Type + Seating */}
-        <div className="eq-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem', marginBottom: '1.25rem' }}>
+        <div className="eq-grid-2">
           <div>
             <label style={labelStyle}><Car size={13} /> Vehicle Type</label>
             <select name="vehicleType" className="eq-field eq-select" style={fieldStyle} value={form.vehicleType} onChange={handleChange}>
