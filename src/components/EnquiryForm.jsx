@@ -29,13 +29,13 @@ Trip Details:
 Pickup Location: ${f.pickup}
 Drop Location: ${f.drop}
 Travel Date: ${f.date}
+Number of Days Required: ${f.numberOfDays || '1'}
+Trip Type: ${f.tripType}
 
 Vehicle Requirement:
 Type: ${f.vehicleType}
 Seating Capacity: ${f.seating} Seater
-
 Number of Passengers: ${f.passengers}
-Trip Type: ${f.tripType}
 
 Please share availability and quotation.`;
 }
@@ -50,6 +50,7 @@ const EnquiryForm = ({ prefillVehicleType = '', prefillSeating = '', compact = f
     vehicleType: prefillVehicleType || 'Car',
     seating: prefillSeating || '4',
     passengers: '',
+    numberOfDays: '',
     tripType: 'One Way',
   });
 
@@ -175,18 +176,25 @@ const EnquiryForm = ({ prefillVehicleType = '', prefillSeating = '', compact = f
           </div>
         </div>
 
-        {/* Row 3: Date + Trip Type */}
+        {/* Row 3: Date + Number of Days */}
         <div className="eq-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem', marginBottom: '1.25rem' }}>
           <div>
             <label style={labelStyle}><Calendar size={13} /> Travel Date</label>
             <input type="date" name="date" className="eq-field" style={fieldStyle} value={form.date} onChange={handleChange} />
           </div>
           <div>
-            <label style={labelStyle}><Navigation size={13} /> Trip Type</label>
-            <select name="tripType" className="eq-field eq-select" style={fieldStyle} value={form.tripType} onChange={handleChange}>
-              {TRIP_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
-            </select>
+            <label style={labelStyle}><Calendar size={13} /> No. of Days Required</label>
+            <input type="number" name="numberOfDays" className="eq-field" style={fieldStyle}
+              placeholder="e.g. 2" min="1" max="365" value={form.numberOfDays} onChange={handleChange} />
           </div>
+        </div>
+
+        {/* Row 3b: Trip Type */}
+        <div style={{ marginBottom: '1.25rem' }}>
+          <label style={labelStyle}><Navigation size={13} /> Trip Type</label>
+          <select name="tripType" className="eq-field eq-select" style={fieldStyle} value={form.tripType} onChange={handleChange}>
+            {TRIP_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
+          </select>
         </div>
 
         {/* Row 4: Vehicle Type + Seating */}
