@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const phoneNumber = "919876543210";
+  const phoneNumber = "916369284551";
   const waBase = "Hello INAI Travels, I'm interested in booking a vehicle.";
   const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(waBase)}`;
 
@@ -52,7 +53,7 @@ const Navbar = () => {
 
         .nav-cta-desktop { display: none; gap: 0.75rem; }
         @media (min-width: 1024px) { .nav-cta-desktop { display: flex; } }
-        .nav-cta-btn { padding: 0.6rem 1.25rem; font-size: 0.85rem; border-radius: 10px; font-weight: 800; }
+        .nav-cta-btn { padding: 0.6rem 1.25rem; font-size: 0.85rem; border-radius: 10px; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; }
 
         .menu-btn { background: none; border: none; color: white; cursor: pointer; display: block; }
         @media (min-width: 992px) { .menu-btn { display: none; } }
@@ -82,10 +83,10 @@ const Navbar = () => {
 
         <div className="nav-cta-desktop">
           <a href={`tel:+${phoneNumber}`} className="btn btn-outline nav-cta-btn" style={{ border: '2.5px solid white' }}>
-            <Phone size={14} /> CALL +91 98765
+            <Phone size={14} /> +91 63692 84551
           </a>
           <a href={waLink} target="_blank" rel="noreferrer" className="btn btn-whatsapp nav-cta-btn">
-            <MessageCircle size={14} /> WHATSAPP
+            <WhatsAppIcon size={16} /> BOOK ON WHATSAPP
           </a>
         </div>
 
@@ -113,10 +114,10 @@ const Navbar = () => {
             ))}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '80%', marginTop: '4rem' }}>
               <a href={`tel:+${phoneNumber}`} className="btn btn-primary" style={{ border: '2px solid white' }}>
-                <Phone size={24} /> CALL NOW
+                <Phone size={24} /> +91 63692 84551
               </a>
               <a href={waLink} className="btn btn-whatsapp" style={{ width: '100%' }}>
-                <MessageCircle size={24} /> WHATSAPP NOW
+                <WhatsAppIcon size={24} style={{ marginRight: '10px' }} /> BOOK ON WHATSAPP
               </a>
             </div>
           </motion.div>

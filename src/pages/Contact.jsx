@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MessageCircle, MapPin, Mail, Send, Calendar, User, Navigation } from 'lucide-react';
+import { Phone, MapPin, Mail, Send, Calendar, User, Navigation } from 'lucide-react';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 
 const Contact = () => {
-  const phoneNumber = "919876543210";
+  const phoneNumber = "916369284551";
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -25,8 +26,7 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-      <style dangerouslySetInnerHTML={{
-        __html: `
+      <style dangerouslySetInnerHTML={{ __html: `
         .contact-hero {
           background: var(--primary);
           color: white;
@@ -111,17 +111,17 @@ const Contact = () => {
           {/* Left Side: Info */}
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="contact-card">
             <h2 style={{ marginBottom: '2.5rem' }}>Get in Touch</h2>
-
+            
             <div className="info-item">
               <div className="icon-circle"><Phone size={24} /></div>
               <div>
                 <h4 style={{ marginBottom: '0.25rem' }}>Call Us</h4>
-                <a href={`tel:+${phoneNumber}`} style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)' }}>+91 98765 43210</a>
+                <a href={`tel:+${phoneNumber}`} style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)' }}>+91 63692 84551</a>
               </div>
             </div>
 
             <div className="info-item">
-              <div className="icon-circle"><MessageCircle size={24} /></div>
+              <div className="icon-circle"><WhatsAppIcon size={24} /></div>
               <div>
                 <h4 style={{ marginBottom: '0.25rem' }}>WhatsApp</h4>
                 <a href={`https://wa.me/${phoneNumber}`} target="_blank" rel="noreferrer" style={{ fontSize: '1.2rem', fontWeight: 700, color: '#25D366' }}>Chat with Us</a>
@@ -132,7 +132,7 @@ const Contact = () => {
               <div className="icon-circle"><MapPin size={24} /></div>
               <div>
                 <h4 style={{ marginBottom: '0.25rem' }}>Office</h4>
-                <p style={{ color: 'var(--text-light)' }}>123 Travel Lane, Gandhipuram,<br />Coimbatore, Tamil Nadu 641012</p>
+                <p style={{ color: 'var(--text-light)' }}>Coimbatore, Tamil Nadu, India</p>
               </div>
             </div>
 
@@ -140,7 +140,7 @@ const Contact = () => {
               <div className="icon-circle"><Mail size={24} /></div>
               <div>
                 <h4 style={{ marginBottom: '0.25rem' }}>Email</h4>
-                <p style={{ color: 'var(--text-light)' }}>booking@inaitravels.com</p>
+                <p style={{ color: 'var(--text-light)' }}>hello@inaitravels.com</p>
               </div>
             </div>
           </motion.div>
@@ -177,7 +177,7 @@ const Contact = () => {
               </div>
 
               <button type="submit" className="btn btn-whatsapp" style={{ width: '100%', padding: '1.25rem', marginTop: '1rem', justifyContent: 'center', fontSize: '1.1rem' }}>
-                Book via WhatsApp <Send size={20} />
+                <WhatsAppIcon size={20} style={{ marginRight: '10px' }} /> Book via WhatsApp <Send size={20} style={{ marginLeft: '10px' }} />
               </button>
               <p style={{ textAlign: 'center', marginTop: '1rem', fontSize: '0.85rem', color: 'var(--text-light)' }}>
                 *By clicking, you will be redirected to WhatsApp to confirm your details.
@@ -188,13 +188,13 @@ const Contact = () => {
 
         {/* Map */}
         <div className="map-wrapper" style={{ marginBottom: '8rem' }}>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125322.4415480749!2d76.8848329!3d11.0116775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859af2f973901%3A0x268a817743245453!2sCoimbatore%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1711982845678!5m2!1sen!2sin"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125322.4415480749!2d76.8848329!3d11.0116775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859af2f973901%3A0x268a817743245453!2sCoimbatore%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1711982845678!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen="" 
+            loading="lazy" 
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>

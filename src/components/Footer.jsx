@@ -115,18 +115,18 @@ const Footer = () => {
               </li>
               <li>
                 <Phone size={24} className="text-accent" style={{ color: 'var(--accent)' }} />
-                <span>+91 98765 43210</span>
+                <span>+91 63692 84551</span>
               </li>
               <li>
                 <Mail size={24} className="text-accent" style={{ color: 'var(--accent)' }} />
-                <span>info@inaitravels.com</span>
+                <span>hello@inaitravels.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} INAI TRAVELS. Handcrafted for premium travel experiences.</p>
+          <p>&copy; {new Date().getFullYear()} INAI TRAVELS. Designed & Maintained by VT Business Support.</p>
         </div>
       </div>
     </footer>
