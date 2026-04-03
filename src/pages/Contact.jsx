@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MapPin, Mail, Clock } from 'lucide-react';
+import { Phone, MapPin, Mail, Clock, Headphones } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
 import EnquiryForm from '../components/EnquiryForm';
 
@@ -11,7 +11,7 @@ const Contact = () => {
     <div className="contact-page">
       <style dangerouslySetInnerHTML={{ __html: `
         .contact-hero {
-          background: linear-gradient(rgba(0,33,71,0.9), rgba(0,33,71,0.9)), url('/images/hero.png');
+          background: linear-gradient(rgba(0,33,71,0.9), rgba(0,33,71,0.9)), url('/images/hero_new.png');
           background-size: cover; background-position: center;
           color: white; padding: 10rem 0 6rem; text-align: center;
         }
@@ -43,11 +43,19 @@ const Contact = () => {
         .info-item:hover .info-icon { background: var(--accent); }
         .wa-big-btn {
           display: flex; align-items: center; justify-content: center; gap: 0.75rem;
-          width: 100%; padding: 1.3rem; border-radius: 14px; background: var(--whatsapp);
-          color: white; font-weight: 900; font-size: 1.1rem; text-decoration: none;
-          box-shadow: 0 8px 20px rgba(37,211,102,0.25); transition: 0.25s; margin-top: 2.5rem;
+          width: 100%; padding: 1.35rem; border-radius: 15px; background: #25D366;
+          color: white; font-weight: 900; font-size: 1.15rem; text-decoration: none;
+          box-shadow: 0 8px 25px rgba(37,211,102,0.3); transition: 0.25s; margin-top: 2.5rem;
         }
-        .wa-big-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(37,211,102,0.35); }
+        .wa-big-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(37,211,102,0.45); }
+        
+        .contact-highlight-phone {
+          font-size: 2.2rem; font-weight: 950; color: var(--primary); line-height: 1.1; margin-top: 0.5rem; display: block; text-decoration: none;
+        }
+        .contact-instant-badge {
+          display: inline-block; background: var(--accent); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 6px; font-weight: 850; font-size: 0.8rem; margin-bottom: 0.5rem;
+        }
+        
         .map-wrapper {
           border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08);
           height: 420px; margin-bottom: 8rem;
@@ -78,40 +86,40 @@ const Contact = () => {
             <div className="info-item">
               <div className="info-icon"><Phone size={24} /></div>
               <div>
-                <h4 style={{ marginBottom: '0.3rem', fontSize: '1.1rem' }}>Call Us Directly</h4>
-                <a href={`tel:+${PHONE}`} style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--primary)', textDecoration: 'none' }}>
+                <span className="contact-instant-badge">24/7 INSTANT BOOKING</span>
+                <h4 style={{ marginBottom: '0.3rem', fontSize: '1.1rem', color: '#6B7280' }}>Call for Immediate Quote:</h4>
+                <a href={`tel:+${PHONE}`} className="contact-highlight-phone">
                   +91 63692 84551
                 </a>
-                <p style={{ color: '#6B7280', fontSize: '0.88rem', marginTop: '0.25rem', marginBottom: 0 }}>Monday – Sunday, 6 AM – 10 PM</p>
               </div>
             </div>
 
             <div className="info-item">
               <div className="info-icon"><WhatsAppIcon size={24} /></div>
               <div>
-                <h4 style={{ marginBottom: '0.3rem', fontSize: '1.1rem' }}>WhatsApp</h4>
+                <h4 style={{ marginBottom: '0.3rem', fontSize: '1.1rem', color: '#6B7280' }}>WhatsApp Support:</h4>
                 <a href={`https://wa.me/${PHONE}`} target="_blank" rel="noreferrer"
-                  style={{ fontSize: '1.3rem', fontWeight: 800, color: '#25D366', textDecoration: 'none' }}>
+                  style={{ fontSize: '1.6rem', fontWeight: 900, color: '#25D366', textDecoration: 'none' }}>
                   Chat with Us Now
                 </a>
-                <p style={{ color: '#6B7280', fontSize: '0.88rem', marginTop: '0.25rem', marginBottom: 0 }}>Fastest way to get a quick quote</p>
+                <p style={{ color: '#6B7280', fontSize: '0.9rem', marginTop: '0.4rem', marginBottom: 0 }}>Average response time: 2 mins</p>
               </div>
             </div>
 
             <div className="info-item">
               <div className="info-icon"><MapPin size={24} /></div>
               <div>
-                <h4 style={{ marginBottom: '0.3rem', fontSize: '1.1rem' }}>Based in</h4>
-                <p style={{ fontWeight: 700, fontSize: '1.1rem', color: 'var(--primary)', margin: 0 }}>Coimbatore, Tamil Nadu</p>
-                <p style={{ color: '#6B7280', fontSize: '0.88rem', marginTop: '0.25rem', marginBottom: 0 }}>Serving all of South India</p>
+                <h4 style={{ marginBottom: '0.3rem', fontSize: '1.1rem', color: '#6B7280' }}>Our Location:</h4>
+                <p style={{ fontWeight: 800, fontSize: '1.2rem', color: 'var(--primary)', margin: 0 }}>Coimbatore, Tamil Nadu</p>
+                <p style={{ color: '#6B7280', fontSize: '0.9rem', marginTop: '0.2rem', marginBottom: 0 }}>Serving all of South India</p>
               </div>
             </div>
 
             <div className="info-item" style={{ marginBottom: 0 }}>
               <div className="info-icon"><Mail size={24} /></div>
               <div>
-                <h4 style={{ marginBottom: '0.3rem', fontSize: '1.1rem' }}>Email</h4>
-                <a href="mailto:hello@inaitravels.com" style={{ fontWeight: 700, fontSize: '1.05rem', color: 'var(--primary)', textDecoration: 'none' }}>
+                <h4 style={{ marginBottom: '0.3rem', fontSize: '1.1rem', color: '#6B7280' }}>Official Email:</h4>
+                <a href="mailto:hello@inaitravels.com" style={{ fontWeight: 800, fontSize: '1.2rem', color: 'var(--primary)', textDecoration: 'none' }}>
                   hello@inaitravels.com
                 </a>
               </div>
@@ -119,14 +127,14 @@ const Contact = () => {
 
             <a href={`https://wa.me/${PHONE}?text=${encodeURIComponent("Hello INAI Travels, I'd like to make an enquiry.")}`}
               target="_blank" rel="noreferrer" className="wa-big-btn">
-              <WhatsAppIcon size={26} /> QUICK WHATSAPP CHAT
+              <WhatsAppIcon size={28} /> WHATSAPP FOR BOOKING
             </a>
           </motion.div>
 
           {/* Right – Enquiry Form */}
           <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
             className="contact-form-card">
-            <h2 style={{ marginBottom: '0.5rem', fontSize: '2rem' }}>Booking Enquiry</h2>
+            <h2 style={{ marginBottom: '0.5rem', fontSize: '2rem' }}>Rapid Trip Enquiry</h2>
             <p style={{ color: '#6B7280', marginBottom: '2.5rem', fontSize: '1rem' }}>
               Fill in your trip details and we'll send you the best available quote on WhatsApp instantly.
             </p>

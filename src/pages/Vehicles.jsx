@@ -9,35 +9,46 @@ const Vehicles = () => {
   const [modal, setModal] = useState(null); // { vehicleType, seating, name }
 
   const categories = [
-    { id: 'cars',  label: 'Cars (Sedan/SUV)',  icon: <Car size={20} /> },
-    { id: 'tempo', label: 'Tempo Traveller',   icon: <Users size={20} /> },
-    { id: 'buses', label: 'Luxury Buses',      icon: <Bus size={20} /> }
+    { id: 'cars', label: 'Cars (Sedan/SUV)', icon: <Car size={20} /> },
+    { id: 'tempo', label: 'Tempo Traveller', icon: <Users size={20} /> },
+    { id: 'buses', label: 'Luxury Buses', icon: <Bus size={20} /> }
   ];
 
   const vehicles = {
     cars: [
-      { name: "Maruti Swift Dzire", seats: "4 Seater", img: "/images/swift_dzire.png", vehicleType: "Car", seating: "4",
-        desc: "Coimbatore's favourite sedan for city tours and airport transfers. Comfortable for up to 4 passengers." },
-      { name: "Toyota Innova Crysta", seats: "7 Seater", img: "/images/innova_crysta.png", vehicleType: "Car", seating: "7",
-        desc: "The gold standard for family travel in India. Unmatched luxury and safety on South Indian highways." }
+      {
+        name: "Sedan", seats: "4 Seater", img: "/images/swift_dzire_no_plate.png", vehicleType: "Car", seating: "4",
+        desc: "Coimbatore's favourite sedan for city tours and airport transfers. Comfortable for up to 4 passengers."
+      },
+      {
+        name: "Innova Crysta", seats: "7 Seater", img: "/images/innova_crysta_no_plate.png", vehicleType: "Car", seating: "7",
+        desc: "The gold standard for family travel in India. Unmatched luxury and safety on South Indian highways."
+      }
     ],
     tempo: [
-      { name: "Force Tempo Traveller", seats: "14 Seater", img: "/images/tempo_traveller.png", vehicleType: "Tempo Traveller", seating: "14",
-        desc: "Perfect group vehicle for Tamil Nadu tours. Spacious, fully air-conditioned with push-back seats." },
-      { name: "Force Urbania Luxury", seats: "18 Seater", img: "/images/force_urbania_clean.png", vehicleType: "Tempo Traveller", seating: "18",
-        desc: "Next-gen luxury travel in Coimbatore. Premium aesthetics and superior comfort for long-distance group journeys." }
+      {
+        name: "Tempo Traveller", seats: "14 Seater", img: "/images/tempo_traveller_no_plate.png", vehicleType: "Tempo Traveller", seating: "14",
+        desc: "Perfect group vehicle for Tamil Nadu tours. Spacious, fully air-conditioned with push-back seats."
+      },
+      {
+        name: "Luxury Tempo Traveller", seats: "18 Seater", img: "/images/force_urbania_no_plate.png", vehicleType: "Tempo Traveller", seating: "18",
+        desc: "Next-gen luxury travel in Coimbatore. Premium aesthetics and superior comfort for long-distance group journeys."
+      }
     ],
     buses: [
-      { name: "Luxury Tourist Coach", seats: "18–52 Seater", img: "/images/tourist_bus.png", vehicleType: "Bus", seating: "52",
-        desc: "Large fleet of private tourist buses for weddings, corporate events, and spiritual tours across South India." }
+      {
+        name: "Luxury Tourist Coach", seats: "18–52 Seater", img: "/images/tourist_bus_no_plate.png", vehicleType: "Bus", seating: "52",
+        desc: "Large fleet of private tourist buses for weddings, corporate events, and spiritual tours across South India."
+      }
     ]
   };
 
   return (
     <div className="vehicles-page-v2">
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .v-hero {
-          background: linear-gradient(rgba(0,33,71,0.88), rgba(0,33,71,0.88)), url('/images/hero.png');
+          background: linear-gradient(rgba(0,33,71,0.88), rgba(0,33,71,0.88)), url('/images/hero_new.png');
           background-size: cover; background-position: center;
           padding: 10rem 0 6rem; text-align: center; color: white;
         }

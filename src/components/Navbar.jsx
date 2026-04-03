@@ -43,17 +43,30 @@ const Navbar = () => {
           box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .nav-brand { font-size: 1.6rem; font-weight: 850; letter-spacing: -1px; }
+        .nav-brand { 
+          font-size: 1.8rem; font-weight: 900; letter-spacing: -1px; 
+          text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+          color: white; text-decoration: none;
+        }
         .nav-brand span { color: var(--accent); }
 
         .nav-links-desktop { display: none; gap: 2.5rem; }
         @media (min-width: 992px) { .nav-links-desktop { display: flex; } }
-        .nav-item { font-weight: 700; color: rgba(255,255,255,0.85); font-size: 0.95rem; }
+        .nav-item { font-weight: 700; color: rgba(255,255,255,0.9); font-size: 0.95rem; text-decoration: none; transition: 0.2s; }
         .nav-item:hover, .nav-item.active { color: var(--accent); }
 
         .nav-cta-desktop { display: none; gap: 0.75rem; }
         @media (min-width: 1024px) { .nav-cta-desktop { display: flex; } }
         .nav-cta-btn { padding: 0.6rem 1.25rem; font-size: 0.85rem; border-radius: 10px; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; }
+        .nav-phone-btn { 
+          border: 2.5px solid var(--accent); 
+          color: var(--accent);
+          transition: 0.3s;
+        }
+        .nav-phone-btn:hover {
+          background: var(--accent);
+          color: var(--primary);
+        }
 
         .menu-btn { background: none; border: none; color: white; cursor: pointer; display: block; }
         @media (min-width: 992px) { .menu-btn { display: none; } }
@@ -64,7 +77,17 @@ const Navbar = () => {
           display: flex; flex-direction: column; align-items: center; justify-content: center;
           gap: 2rem;
         }
-        .mobile-nav-item { font-size: 2rem; font-weight: 800; color: white; }
+        .mobile-nav-item { font-size: 2rem; font-weight: 800; color: white; text-decoration: none; }
+        .mobile-contact-pill {
+          background: white; color: var(--primary); padding: 1rem 2rem; border-radius: 12px;
+          font-weight: 800; display: flex; align-items: center; gap: 0.75rem; text-decoration: none;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+          border: 2px solid var(--accent);
+        }
+
+        @media (max-width: 480px) {
+          .nav-brand { font-size: 1.5rem; }
+        }
       `}} />
       <div className="container nav-flex">
         <Link to="/" className="nav-brand">INAI <span>TRAVELS</span></Link>
@@ -82,7 +105,7 @@ const Navbar = () => {
         </div>
 
         <div className="nav-cta-desktop">
-          <a href={`tel:+${phoneNumber}`} className="btn btn-outline nav-cta-btn" style={{ border: '2.5px solid white' }}>
+          <a href={`tel:+${phoneNumber}`} className="btn nav-cta-btn nav-phone-btn">
             <Phone size={14} /> +91 63692 84551
           </a>
           <a href={waLink} target="_blank" rel="noreferrer" className="btn btn-whatsapp nav-cta-btn">
@@ -112,11 +135,11 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '80%', marginTop: '4rem' }}>
-              <a href={`tel:+${phoneNumber}`} className="btn btn-primary" style={{ border: '2px solid white' }}>
-                <Phone size={24} /> +91 63692 84551
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '85%', marginTop: '3rem' }}>
+              <a href={`tel:+${phoneNumber}`} className="mobile-contact-pill">
+                <Phone size={24} style={{ color: 'var(--accent)' }} /> +91 63692 84551
               </a>
-              <a href={waLink} className="btn btn-whatsapp" style={{ width: '100%' }}>
+              <a href={waLink} className="btn btn-whatsapp" style={{ width: '100%', padding: '1.2rem', borderRadius: '12px' }}>
                 <WhatsAppIcon size={24} style={{ marginRight: '10px' }} /> BOOK ON WHATSAPP
               </a>
             </div>

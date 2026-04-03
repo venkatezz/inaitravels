@@ -42,14 +42,13 @@ const GlobalConversionBar = () => {
           bottom: 0;
           left: 0;
           width: 100%;
-          background: rgba(255, 255, 255, 0.98);
-          backdrop-filter: blur(10px);
+          background: white;
           display: flex;
-          padding: 0.75rem 1rem;
-          gap: 1rem;
-          box-shadow: 0 -10px 30px rgba(0,33,71,0.1);
+          padding: 0.6rem 0.8rem;
+          gap: 0.8rem;
+          box-shadow: 0 -8px 25px rgba(0,0,0,0.12);
           z-index: 10010;
-          border-top: 1px solid rgba(0,0,0,0.05);
+          border-top: 2px solid #f0f0f0;
         }
 
         @media (min-width: 769px) {
@@ -61,28 +60,29 @@ const GlobalConversionBar = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 0.75rem;
-          padding: 1rem;
+          gap: 0.6rem;
+          padding: 0.85rem;
           border-radius: 12px;
-          font-weight: 850;
-          font-size: 1.1rem;
+          font-weight: 900;
+          font-size: 0.95rem;
           color: white;
           text-decoration: none;
           transition: 0.2s;
+          text-transform: uppercase;
         }
-        .bottom-btn:active { transform: scale(0.95); }
+        .bottom-btn:active { transform: scale(0.96); }
 
         .bb-call { 
           background: var(--primary); 
-          box-shadow: 0 5px 15px rgba(0,33,71,0.25);
+          box-shadow: 0 5px 15px rgba(0,33,71,0.2);
         }
         .bb-wa { 
-          background: var(--whatsapp); 
-          box-shadow: 0 5px 15px rgba(37,211,102,0.25);
+          background: #25D366; 
+          box-shadow: 0 5px 15px rgba(37,211,102,0.2);
         }
       `}} />
 
-      {/* Floating WA Button */}
+      {/* Floating WA Button (Desktop/Tablet) */}
       <a href={waLink} className="floating-wa-btn" title="Contact Us on WhatsApp">
         <WhatsAppIcon size={32} />
       </a>
@@ -90,10 +90,10 @@ const GlobalConversionBar = () => {
       {/* Sticky Bottom Bar for Mobile */}
       <div className="mobile-bottom-bar">
          <a href={`tel:+${phoneNumber}`} className="bottom-btn bb-call">
-            <Phone size={22} /> CALL
+            <Phone size={20} /> CALL NOW
          </a>
          <a href={waLink} className="bottom-btn bb-wa">
-            <WhatsAppIcon size={24} /> BOOK
+            <WhatsAppIcon size={22} /> WHATSAPP NOW
          </a>
       </div>
     </>
