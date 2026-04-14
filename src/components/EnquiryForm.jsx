@@ -143,8 +143,11 @@ const EnquiryForm = ({ prefillVehicleType = '', prefillSeating = '', compact = f
           margin-bottom: 1.25rem;
         }
         @media (max-width: 640px) {
-          .eq-grid-2 { grid-template-columns: 1fr !important; }
-          .eq-field { font-size: 16px !important; min-height: 52px; }
+          .eq-grid-2 { grid-template-columns: 1fr !important; gap: 0.8rem; margin-bottom: 0.8rem; }
+          .eq-field { font-size: 14px !important; min-height: 42px; padding: 0.55rem 0.75rem !important; }
+          .eq-select { background-position: right 8px center !important; }
+          label { font-size: 0.75rem !important; margin-bottom: 0.3rem !important; }
+          .btn { font-size: 1rem !important; padding: 0.85rem !important; border-radius: 12px; }
         }
       `}} />
 

@@ -22,11 +22,19 @@ const Navbar = () => {
     setIsOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+    return () => document.body.classList.remove('menu-open');
+  }, [isOpen]);
+
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'Explore', path: '/explore' },
     { name: 'Vehicles', path: '/vehicles' },
-    { name: 'Services', path: '/services' },
-    { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -75,15 +83,13 @@ const Navbar = () => {
           position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
           background: var(--primary); z-index: 11000;
           display: flex; flex-direction: column; align-items: center; justify-content: center;
-          gap: 2rem;
+          gap: 1.8rem;
         }
-        .mobile-nav-item { font-size: 2rem; font-weight: 800; color: white; text-decoration: none; }
-        .mobile-contact-pill {
-          background: white; color: var(--primary); padding: 1rem 2rem; border-radius: 12px;
-          font-weight: 800; display: flex; align-items: center; gap: 0.75rem; text-decoration: none;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-          border: 2px solid var(--accent);
-        }
+        .mobile-nav-item { font-size: 1.5rem; font-weight: 700; color: white; text-decoration: none; letter-spacing: 1px; }
+        
+        /* Global rules for when menu is open */
+        body.menu-open { overflow: hidden; }
+        body.menu-open .mobile-bottom-bar { display: none !important; }
 
         @media (max-width: 480px) {
           .nav-brand { font-size: 1.5rem; }
@@ -128,21 +134,13 @@ const Navbar = () => {
             className="mobile-slide-menu"
           >
             <button className="menu-btn" style={{ position: 'absolute', top: '1.5rem', right: '1.5rem' }} onClick={() => setIsOpen(false)}>
-              <X size={40} />
+              <X size={32} />
             </button>
             {navLinks.map((link) => (
               <Link key={link.path} to={link.path} className="mobile-nav-item" onClick={() => setIsOpen(false)}>
                 {link.name}
               </Link>
             ))}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '85%', marginTop: '3rem' }}>
-              <a href={`tel:+${phoneNumber}`} className="mobile-contact-pill">
-                <Phone size={24} style={{ color: 'var(--accent)' }} /> +91 63692 84551
-              </a>
-              <a href={waLink} className="btn btn-whatsapp" style={{ width: '100%', padding: '1.2rem', borderRadius: '12px' }}>
-                <WhatsAppIcon size={24} style={{ marginRight: '10px' }} /> BOOK ON WHATSAPP
-              </a>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>

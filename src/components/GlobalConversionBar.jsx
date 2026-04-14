@@ -10,31 +10,9 @@ const GlobalConversionBar = () => {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: `
-        .floating-wa-btn {
-          position: fixed; 
-          bottom: 2rem; 
-          right: 2rem; 
-          width: 65px; 
-          height: 65px;
-          background: var(--whatsapp); 
-          color: white; 
-          border-radius: 50%;
-          display: flex; 
-          align-items: center; 
-          justify-content: center;
-          box-shadow: 0 10px 30px rgba(37,211,102,0.4); 
-          z-index: 10005;
-          transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .floating-wa-btn:hover { transform: scale(1.1) rotate(5deg); }
-        
-        @media (max-width: 768px) { 
-          .floating-wa-btn { 
-            bottom: 5.5rem; 
-            right: 1.5rem;
-            width: 55px;
-            height: 55px;
-          } 
+        /* Disable CTAs when Mobile Menu is Open */
+        body.menu-open .mobile-bottom-bar {
+          display: none !important;
         }
 
         .mobile-bottom-bar {
@@ -44,8 +22,8 @@ const GlobalConversionBar = () => {
           width: 100%;
           background: white;
           display: flex;
-          padding: 0.6rem 0.8rem;
-          gap: 0.8rem;
+          padding: 0.5rem;
+          gap: 0.5rem;
           box-shadow: 0 -8px 25px rgba(0,0,0,0.12);
           z-index: 10010;
           border-top: 2px solid #f0f0f0;
@@ -60,11 +38,11 @@ const GlobalConversionBar = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 0.6rem;
-          padding: 0.85rem;
-          border-radius: 12px;
-          font-weight: 900;
-          font-size: 0.95rem;
+          gap: 0.4rem;
+          padding: 0.75rem;
+          border-radius: 8px;
+          font-weight: 800;
+          font-size: 0.85rem;
           color: white;
           text-decoration: none;
           transition: 0.2s;
@@ -82,12 +60,7 @@ const GlobalConversionBar = () => {
         }
       `}} />
 
-      {/* Floating WA Button (Desktop/Tablet) */}
-      <a href={waLink} className="floating-wa-btn" title="Contact Us on WhatsApp">
-        <WhatsAppIcon size={32} />
-      </a>
-
-      {/* Sticky Bottom Bar for Mobile */}
+      {/* Sticky Bottom Bar for Mobile Only */}
       <div className="mobile-bottom-bar">
          <a href={`tel:+${phoneNumber}`} className="bottom-btn bb-call">
             <Phone size={20} /> CALL NOW
