@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const phoneNumber = "916369284551";
@@ -12,12 +12,12 @@ const Footer = () => {
         .footer {
           background: var(--primary);
           color: white;
-          padding: 6rem 0 2rem;
-          margin-top: 5rem;
+          padding: 4rem 0 2rem;
+          margin-top: 3rem;
         }
         .footer-grid {
           display: grid;
-          gap: 4rem;
+          gap: 2.5rem;
           border-bottom: 1px solid rgba(255,255,255,0.08);
           padding-bottom: 3.5rem;
           margin-bottom: 2rem;
@@ -62,7 +62,7 @@ const Footer = () => {
         }
         .footer-title {
           font-size: 1.25rem;
-          margin-bottom: 2.5rem;
+          margin-bottom: 1.5rem;
           color: white;
           font-weight: 850;
           text-transform: uppercase;
@@ -83,7 +83,7 @@ const Footer = () => {
         .footer-contact li {
           display: flex;
           gap: 1.2rem;
-          margin-bottom: 2rem;
+          margin-bottom: 1.25rem;
           color: #e9ecef;
         }
         .f-contact-bold {
@@ -116,9 +116,8 @@ const Footer = () => {
             <h3 className="footer-title">Quick Links</h3>
             <ul className="footer-links">
               <li><Link to="/">Home</Link></li>
+              <li><Link to="/explore">Explore</Link></li>
               <li><Link to="/vehicles">Our Fleet</Link></li>
-              <li><Link to="/services">Services</Link></li>
-              <li><Link to="/about">About Us</Link></li>
               <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
@@ -128,7 +127,9 @@ const Footer = () => {
             <ul className="footer-contact">
               <li>
                 <MapPin size={24} style={{ color: 'var(--accent)', flexShrink: 0 }} />
-                <span>Coimbatore, Tamil Nadu, India</span>
+                <a href="https://maps.app.goo.gl/i4L1nA8WiDgWyrKHA" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                  <span>Coimbatore, Tamil Nadu, India</span>
+                </a>
               </li>
               <li>
                 <Phone size={24} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: '4px' }} />
@@ -137,16 +138,12 @@ const Footer = () => {
                   <a href={`tel:+${phoneNumber}`} className="f-contact-bold" style={{ textDecoration: 'none' }}>+91 63692 84551</a>
                 </div>
               </li>
-              <li>
-                <Mail size={24} style={{ color: 'var(--accent)', flexShrink: 0 }} />
-                <a href="mailto:hello@inaitravels.com" style={{ color: 'inherit', textDecoration: 'none' }}>hello@inaitravels.com</a>
-              </li>
             </ul>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} INAI TRAVELS. Designed & Maintained by VT Business Support.</p>
+          <p>&copy; {new Date().getFullYear()} INAI TRAVELS. Designed & Maintained by <a href="https://vtbusinesssupport.in/" target="_blank" rel="noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: 600 }}>VT Business Support</a></p>
         </div>
       </div>
     </footer>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MapPin, Mail, Clock, Headphones } from 'lucide-react';
+import { Phone, MapPin, Clock, Headphones } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
 import EnquiryForm from '../components/EnquiryForm';
 
@@ -16,24 +16,24 @@ const Contact = () => {
           color: white; padding: 10rem 0 6rem; text-align: center;
         }
         .contact-layout {
-          display: grid; gap: 3rem;
-          padding: 4rem 0 8rem;
+          display: grid; gap: 2rem;
+          padding: 2.5rem 0 4rem;
         }
         @media (min-width: 992px) {
           .contact-layout { grid-template-columns: 1fr 1.6fr; }
         }
         .contact-info-card {
-          background: white; padding: 3rem; border-radius: 24px;
-          box-shadow: 0 15px 50px rgba(0,0,0,0.08); height: fit-content;
+          background: white; padding: 2rem; border-radius: 24px;
+          box-shadow: 0 10px 40px rgba(0,0,0,0.05); height: fit-content;
           border: 1px solid #f0f0f0;
         }
         .contact-form-card {
-          background: white; padding: 3rem; border-radius: 24px;
-          box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+          background: white; padding: 2rem; border-radius: 24px;
+          box-shadow: 0 10px 40px rgba(0,0,0,0.05);
           border: 1px solid #f0f0f0;
         }
         .info-item {
-          display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 2.5rem;
+          display: flex; gap: 1.25rem; align-items: flex-start; margin-bottom: 1.5rem;
         }
         .info-icon {
           width: 52px; height: 52px; background: #f0f4f8; color: var(--primary);
@@ -41,13 +41,7 @@ const Contact = () => {
           flex-shrink: 0; transition: 0.3s;
         }
         .info-item:hover .info-icon { background: var(--accent); }
-        .wa-big-btn {
-          display: flex; align-items: center; justify-content: center; gap: 0.75rem;
-          width: 100%; padding: 1.35rem; border-radius: 15px; background: #25D366;
-          color: white; font-weight: 900; font-size: 1.15rem; text-decoration: none;
-          box-shadow: 0 8px 25px rgba(37,211,102,0.3); transition: 0.25s; margin-top: 2.5rem;
-        }
-        .wa-big-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(37,211,102,0.45); }
+
         
         .contact-highlight-phone {
           font-size: 2.2rem; font-weight: 950; color: var(--primary); line-height: 1.1; margin-top: 0.5rem; display: block; text-decoration: none;
@@ -58,7 +52,23 @@ const Contact = () => {
         
         .map-wrapper {
           border-radius: 24px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-          height: 420px; margin-bottom: 8rem;
+          height: 350px; margin-bottom: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+          .contact-hero { padding: 6rem 1rem 2rem !important; }
+          .contact-hero p { font-size: 1rem !important; margin-bottom: 0 !important; }
+          .contact-layout { gap: 1rem; padding: 1rem 0 1.5rem; }
+          .contact-info-card, .contact-form-card { padding: 1.15rem; border-radius: 16px; }
+          .info-item { gap: 0.8rem; margin-bottom: 0.8rem; }
+          .info-icon { width: 36px; height: 36px; border-radius: 10px; }
+          .contact-highlight-phone { font-size: 1.4rem; }
+          .contact-instant-badge { font-size: 0.7rem; padding: 0.2rem 0.6rem; }
+          .map-wrapper { height: 200px; margin-bottom: 1.5rem; border-radius: 16px; }
+          .contact-hero h1 { font-size: 2rem !important; margin-bottom: 0.75rem !important; }
+          h2 { font-size: 1.4rem !important; margin-bottom: 1rem !important; }
+          h4 { font-size: 0.95rem !important; }
+          p { font-size: 0.85rem !important; }
         }
       `}} />
 
@@ -106,29 +116,18 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="info-item">
+            <div className="info-item" style={{ marginBottom: 0 }}>
               <div className="info-icon"><MapPin size={24} /></div>
               <div>
                 <h4 style={{ marginBottom: '0.3rem', fontSize: '1.1rem', color: '#6B7280' }}>Our Location:</h4>
-                <p style={{ fontWeight: 800, fontSize: '1.2rem', color: 'var(--primary)', margin: 0 }}>Coimbatore, Tamil Nadu</p>
-                <p style={{ color: '#6B7280', fontSize: '0.9rem', marginTop: '0.2rem', marginBottom: 0 }}>Serving all of South India</p>
-              </div>
-            </div>
-
-            <div className="info-item" style={{ marginBottom: 0 }}>
-              <div className="info-icon"><Mail size={24} /></div>
-              <div>
-                <h4 style={{ marginBottom: '0.3rem', fontSize: '1.1rem', color: '#6B7280' }}>Official Email:</h4>
-                <a href="mailto:hello@inaitravels.com" style={{ fontWeight: 800, fontSize: '1.2rem', color: 'var(--primary)', textDecoration: 'none' }}>
-                  hello@inaitravels.com
+                <a href="https://maps.app.goo.gl/i4L1nA8WiDgWyrKHA" target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+                  <p style={{ fontWeight: 800, fontSize: '1.2rem', color: 'var(--primary)', margin: 0 }}>Coimbatore, Tamil Nadu</p>
+                  <p style={{ color: '#6B7280', fontSize: '0.9rem', marginTop: '0.2rem', marginBottom: 0 }}>Serving all of South India</p>
                 </a>
               </div>
             </div>
 
-            <a href={`https://wa.me/${PHONE}?text=${encodeURIComponent("Hello INAI Travels, I'd like to make an enquiry.")}`}
-              target="_blank" rel="noreferrer" className="wa-big-btn">
-              <WhatsAppIcon size={28} /> WHATSAPP FOR BOOKING
-            </a>
+
           </motion.div>
 
           {/* Right – Enquiry Form */}
@@ -146,7 +145,7 @@ const Contact = () => {
         {/* Map */}
         <div className="map-wrapper">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125322.4415480749!2d76.8848329!3d11.0116775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859af2f973901%3A0x268a817743245453!2sCoimbatore%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1711982845678!5m2!1sen!2sin"
+            src="https://maps.google.com/maps?q=11.056849,77.0041979&z=15&output=embed"
             width="100%" height="100%" style={{ border: 0 }}
             allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
           />
