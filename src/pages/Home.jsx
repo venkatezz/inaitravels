@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, CheckCircle, ArrowRight, Clock, Award, Users, X, MapPin, Plane, Car, Calendar, ShieldCheck, Star, Headphones } from 'lucide-react';
@@ -7,7 +7,7 @@ import EnquiryForm from '../components/EnquiryForm';
 
 const Home = () => {
   const phoneNumber = "916369284551";
-  const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent("Hello INAI Travels, I'm interested in booking a vehicle.")}`;
+  const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent("Hello INAI Tours & Travels, I'm interested in booking a vehicle.")}`;
   const [modal, setModal] = useState(null);
 
   const fleet = [
@@ -280,7 +280,7 @@ const Home = () => {
       <section className="compact-section bg-white">
         <div className="container">
           <div className="section-title">
-            <p className="sec-label">WHY INAI TRAVELS</p>
+            <p className="sec-label">WHY INAI TOURS & TRAVELS</p>
             <h2>The INAI Standard</h2>
           </div>
           <div className="grid grid-3" style={{ gap: '1.5rem' }}>

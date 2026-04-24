@@ -1,10 +1,10 @@
-import React from 'react';
+﻿import React from 'react';
 import { Phone } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
 const GlobalConversionBar = () => {
   const phoneNumber = "916369284551";
-  const waBase = "Hello INAI Travels, I'm interested in booking a vehicle.";
+  const waBase = "Hello INAI Tours & Travels, I'm interested in booking a vehicle.";
   const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(waBase)}`;
 
   return (

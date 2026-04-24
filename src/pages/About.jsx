@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Briefcase, Users, Star } from 'lucide-react';
 
@@ -76,7 +76,7 @@ const About = () => {
               viewport={{ once: true }}
             >
               <h2 style={{ fontSize: '3rem', marginBottom: '2rem', lineHeight: 1.1 }}>Experience the <br />True Spirit of <span style={{ color: 'var(--primary)', borderBottom: '4px solid var(--accent)' }}>Travel</span></h2>
-              <p style={{ fontSize: '1.2rem', color: 'var(--text-light)', marginBottom: '1.5rem' }}>Founded in Coimbatore, INAI Travels started with one mission: making travel more than just a commute. We believe in providing a seamless journey where comfort and safety meet professional hospitality.</p>
+              <p style={{ fontSize: '1.2rem', color: 'var(--text-light)', marginBottom: '1.5rem' }}>Founded in Coimbatore, INAI Tours & Travels started with one mission: making travel more than just a commute. We believe in providing a seamless journey where comfort and safety meet professional hospitality.</p>
               <p style={{ fontSize: '1.2rem', color: 'var(--text-light)', marginBottom: '2.5rem' }}>Today, we manage a premium fleet and have safely connected thousands of travelers to destinations across South India. Our commitment remains the same: a premium experience for every passenger, every time.</p>
               <div className="value-cards">
                 <div style={{ padding: '1.5rem', background: 'var(--bg-light)', borderRadius: '15px', borderLeft: '5px solid var(--accent)' }}>
@@ -96,7 +96,7 @@ const About = () => {
               viewport={{ once: true }}
             >
                <div style={{ borderRadius: '30px', overflow: 'hidden', boxShadow: '0 25px 60px rgba(0,0,0,0.15)' }}>
-                  <img src="/images/coimbatore_scenic.png" alt="Inai Travels Coimbatore Scenic" style={{ width: '100%', display: 'block' }} loading="lazy" />
+                  <img src="/images/coimbatore_scenic.png" alt="Inai Tours & Travels Coimbatore Scenic" style={{ width: '100%', display: 'block' }} loading="lazy" />
                </div>
             </motion.div>
           </div>

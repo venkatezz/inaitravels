@@ -1,9 +1,9 @@
-import React from 'react';
+﻿import React from 'react';
 import { Phone, MessageCircle } from 'lucide-react';
 
 const FloatingButtons = () => {
   const phoneNumber = "919876543210";
-  const waMessage = `Hello INAI Travels, I want to book a vehicle.\n\nPickup Location:\nDrop Location:\nDate:\nVehicle Type:`;
+  const waMessage = `Hello INAI Tours & Travels, I want to book a vehicle.\n\nPickup Location:\nDrop Location:\nDate:\nVehicle Type:`;
   const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(waMessage)}`;
 
   return (

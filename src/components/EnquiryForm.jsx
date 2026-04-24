@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Phone, MapPin, Navigation, Calendar, Users, Car, Bus, Send } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
@@ -18,7 +18,7 @@ const SEATING_OPTIONS = ["4", "7", "14", "18", "22", "26", "30", "52"];
 const TRIP_TYPES = ["One Way", "Round Trip"];
 
 function buildWhatsAppMessage(f) {
-  return `Hello INAI Travels,
+  return `Hello INAI Tours & Travels,
 
 I would like to enquire about vehicle booking.
 

@@ -1,11 +1,11 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { Train, Plane, Bus, CheckCircle } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
 
 const Explore = () => {
   const phoneNumber = "916369284551";
-  const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent("Hello INAI Travels, I'd like to plan a trip.")}`;
+  const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent("Hello INAI Tours & Travels, I'd like to plan a trip.")}`;
 
   const destinations = [
     { name: "Ooty", sub: "Queen of Hill Stations", img: "/images/ooty_unique.png", km: "86 km" },

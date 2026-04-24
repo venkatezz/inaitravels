@@ -1,10 +1,10 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Plane, Car, Users, Calendar, Award } from 'lucide-react';
 
 const Services = () => {
   const phoneNumber = "916369284551";
-  const waBase = "Hello INAI Travels, I'm interested in your services.";
+  const waBase = "Hello INAI Tours & Travels, I'm interested in your services.";
   const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(waBase)}`;
 
   const services = [
@@ -31,7 +31,7 @@ const Services = () => {
     {
       icon: <Calendar size={32} />,
       title: "Wedding & Events",
-      desc: "Premium luxury cars for weddings and large tempo travellers for guest transport. Make your special day even more memorable with INAI Travels."
+      desc: "Premium luxury cars for weddings and large tempo travellers for guest transport. Make your special day even more memorable with INAI Tours & Travels."
     },
     {
       icon: <Award size={32} />,
@@ -132,7 +132,7 @@ const Services = () => {
               viewport={{ once: true }}
             >
               <h2 style={{ fontSize: '3rem', marginBottom: '2rem', lineHeight: 1.1 }}>South India Trips <br />You Can <span style={{ color: 'var(--primary)', borderBottom: '4px solid var(--accent)' }}>Completely Trust</span></h2>
-              <p style={{ fontSize: '1.2rem', color: 'var(--text-light)', marginBottom: '2.5rem' }}>Every journey with INAI Travels is built on the foundation of safety, punctuality, and pure local hospitality. Our drivers are more than just chauffeurs; they are your local guides.</p>
+              <p style={{ fontSize: '1.2rem', color: 'var(--text-light)', marginBottom: '2.5rem' }}>Every journey with INAI Tours & Travels is built on the foundation of safety, punctuality, and pure local hospitality. Our drivers are more than just chauffeurs; they are your local guides.</p>
               <ul style={{ display: 'grid', gap: '1.8rem' }}>
                 {[
                   "Transparent Billing (No Surprise Costs)",
@@ -154,7 +154,7 @@ const Services = () => {
               viewport={{ once: true }}
             >
                <div style={{ borderRadius: '30px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.12)' }}>
-                  <img src="/images/airport_pickup.png" alt="Inai Travels Airport Pickup" style={{ width: '100%', display: 'block' }} loading="lazy" />
+                  <img src="/images/airport_pickup.png" alt="Inai Tours & Travels Airport Pickup" style={{ width: '100%', display: 'block' }} loading="lazy" />
                </div>
             </motion.div>
           </div>

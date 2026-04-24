@@ -9,7 +9,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const phoneNumber = "916369284551";
-  const waBase = "Hello INAI Travels, I'm interested in booking a vehicle.";
+  const waBase = "Hello INAI Tours & Travels, I'm interested in booking a vehicle.";
   const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(waBase)}`;
 
   useEffect(() => {
@@ -43,40 +43,45 @@ const Navbar = () => {
       <style dangerouslySetInnerHTML={{ __html: `
         .nav-v2 {
           position: fixed; top: 0; left: 0; width: 100%; z-index: 10001;
-          background: transparent; color: white; transition: 0.3s;
-          padding: 1.5rem 0;
+          background: white; transition: 0.3s;
+          padding: 1.2rem 0;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         .nav-scrolled {
-          background: var(--primary); padding: 0.8rem 0;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+          padding: 0.8rem 0;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         .nav-brand { 
-          font-size: 1.8rem; font-weight: 900; letter-spacing: -1px; 
-          text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-          color: white; text-decoration: none;
+          display: flex; align-items: center;
+          text-decoration: none;
         }
-        .nav-brand span { color: var(--accent); }
+        .brand-logo {
+          height: 52px;
+          width: auto;
+          object-fit: contain;
+          display: block;
+        }
 
         .nav-links-desktop { display: none; gap: 2.5rem; }
         @media (min-width: 992px) { .nav-links-desktop { display: flex; } }
-        .nav-item { font-weight: 700; color: rgba(255,255,255,0.9); font-size: 0.95rem; text-decoration: none; transition: 0.2s; }
+        .nav-item { font-weight: 700; color: var(--primary); font-size: 0.95rem; text-decoration: none; transition: 0.2s; }
         .nav-item:hover, .nav-item.active { color: var(--accent); }
 
         .nav-cta-desktop { display: none; gap: 0.75rem; }
         @media (min-width: 1024px) { .nav-cta-desktop { display: flex; } }
         .nav-cta-btn { padding: 0.6rem 1.25rem; font-size: 0.85rem; border-radius: 10px; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; }
         .nav-phone-btn { 
-          border: 2.5px solid var(--accent); 
-          color: var(--accent);
+          border: 2.5px solid var(--primary); 
+          color: var(--primary);
           transition: 0.3s;
         }
         .nav-phone-btn:hover {
-          background: var(--accent);
-          color: var(--primary);
+          background: var(--primary);
+          color: white;
         }
 
-        .menu-btn { background: none; border: none; color: white; cursor: pointer; display: block; }
+        .menu-btn { background: none; border: none; color: var(--primary); cursor: pointer; display: block; }
         @media (min-width: 992px) { .menu-btn { display: none; } }
 
         .mobile-slide-menu {
@@ -91,12 +96,14 @@ const Navbar = () => {
         body.menu-open { overflow: hidden; }
         body.menu-open .mobile-bottom-bar { display: none !important; }
 
-        @media (max-width: 480px) {
-          .nav-brand { font-size: 1.5rem; }
+        @media (max-width: 768px) {
+          .brand-logo { height: 40px; }
         }
       `}} />
       <div className="container nav-flex">
-        <Link to="/" className="nav-brand">INAI <span>TRAVELS</span></Link>
+        <Link to="/" className="nav-brand">
+          <img src="/inai-logo.png" alt="INAI TOURS & TRAVELS" className="brand-logo" />
+        </Link>
 
         <div className="nav-links-desktop">
           {navLinks.map((link) => (

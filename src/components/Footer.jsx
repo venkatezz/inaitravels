@@ -26,12 +26,22 @@ const Footer = () => {
           .footer-grid { grid-template-columns: 1.5fr 1fr 1fr; }
         }
         .footer-logo {
-          font-size: 1.8rem;
-          font-weight: 900;
-          color: var(--accent);
-          margin-bottom: 1.5rem;
-          display: block;
+          display: flex;
+          align-items: center;
           text-decoration: none;
+          margin-bottom: 1.5rem;
+        }
+        .footer-brand-logo {
+          height: 56px;
+          width: auto;
+          object-fit: contain;
+          display: block;
+          background: rgba(255, 255, 255, 0.95);
+          padding: 8px 16px;
+          border-radius: 8px;
+        }
+        @media (max-width: 768px) {
+          .footer-brand-logo { height: 44px; }
         }
         .footer-text {
           color: #adb5bd;
@@ -103,7 +113,9 @@ const Footer = () => {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-company">
-            <Link to="/" className="footer-logo">INAI TRAVELS</Link>
+            <Link to="/" className="footer-logo">
+              <img src="/inai-logo.png" alt="INAI TOURS & TRAVELS" className="footer-brand-logo" />
+            </Link>
             <p className="footer-text">Providing reliable, safe, and professional travel solutions across Coimbatore and beyond. Your journey is our priority.</p>
             <div className="social-links">
               <span className="social-icon">FB</span>
@@ -143,7 +155,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} INAI TRAVELS. Designed & Maintained by <a href="https://vtbusinesssupport.in/" target="_blank" rel="noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: 600 }}>VT Business Support</a></p>
+          <p>&copy; {new Date().getFullYear()} INAI TOURS & TRAVELS. Designed & Maintained by <a href="https://vtbusinesssupport.in/" target="_blank" rel="noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: 600 }}>VT Business Support</a></p>
         </div>
       </div>
     </footer>
